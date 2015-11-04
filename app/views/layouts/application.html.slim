@@ -1,10 +1,29 @@
 doctype html
 html
   head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      | Hashpedia
+      = content_for?(:title) ? yield(:title) : 'App'
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Jobrm2'}"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  body
-    = yield
+  body data-action="#{controller.action_name}" data-view="#{controller.controller_name}"
+    header
+      nav.navbar.navbar-inverse.navbar-fixed-top
+        .container
+          .navbar-header
+            button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            = link_to 'Home', root_path, class: 'navbar-brand'
+          = render 'layouts/user_nav'
+    main.container[role="main"]
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          div class="alert alert-#{name == :notice ? "success" : "danger"}"
+            button.close[type="button" data-dismiss="alert" aria-hidden="true"] ×
+            = content_tag :div, msg, :id => "flash_#{name}"
+      == yield

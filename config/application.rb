@@ -17,6 +17,8 @@ Bundler.require(*Rails.groups)
 
 module Hashpedia
   class Application < Rails::Application
+    Proc.new { |path| path =~ /font-awesome\/fonts/ and File.extname(path).in?(['.otf', '.eot', '.svg', '.ttf', '.woff']) }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

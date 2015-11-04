@@ -1,0 +1,16 @@
+ /*
+ *= require_self
+ *= require components-font-awesome
+ */
+
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+main {
+  @extend .container;
+  background-color: #fff;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+}

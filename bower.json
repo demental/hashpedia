@@ -1,0 +1,27 @@
+{
+  "name": "hashpedia",
+  "version": "0.0.0",
+  "authors": [
+    "arnaud sellenet <arnodmental@gmail.com>"
+  ],
+  "description": "Hashpedia",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "rails"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
